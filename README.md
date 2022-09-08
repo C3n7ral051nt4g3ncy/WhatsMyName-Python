@@ -1,3 +1,7 @@
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+
+
+
 # [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) Python Script 🔍
 As a regular contributor to Project WhatsMyName, this is a python script I made for myself to check sites are working, and I thoroughly enjoyed making it as I am still at the beginning of my Python journey. 
 
