@@ -1,4 +1,3 @@
-json
 argparse
 requests
 tqdm
