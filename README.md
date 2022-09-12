@@ -5,7 +5,7 @@
 # [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) Python Script 🔍
 As a regular contributor to Project [WhatsMyName](https://whatsmyname.app), this is a python script I made for myself to check if sites are working, and I thoroughly enjoyed making it as I am still at the beginning of my Python journey. 
 
-The script is unofficial and is not part of project WhatsMyname, they have their own python script and I just wanted to experience making my own and I prefer to use mine.
+The script is unofficial and is not part of project WhatsMyname, they have their own python script and I just wanted to experience making my own. Workinf with my own tools means that if I want an imporvement, I have to figure it out myself, which is a good way of training and improving.
 
 The code has been put through Security Bandit to test for any issues, and also through Code Black to get a nice style that fits with PEP8 requirements.
 
