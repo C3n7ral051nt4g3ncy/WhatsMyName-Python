@@ -14,7 +14,7 @@ Feel free to use it, it's open source so that's what it's there for.
 <img width="333" src="https://user-images.githubusercontent.com/104733166/189120786-f854c5f8-57df-408c-bf33-b8eda521572c.png">
 
 # Support ♡
-There is no support button on this repository, this is because WhatsMyName is not my project and this is my own personal script,  all support should go to the Project [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) and to [@WebBreacher](https://ko-fi.com/WebBreacher). **DO NOT DONATE TO ME**
+There is no support button on this repository, this is because WhatsMyName is not my project, `this is my own personal script`,  all support should go to the Project [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) and to [@WebBreacher](https://ko-fi.com/WebBreacher). **DO NOT DONATE TO ME**
 
 # License ©
 I am a regular contributor to the Project WhatsMyName, but I am not officially part of its creation, WMN is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. **Copyright (C) 2022 Micah Hoffman**
