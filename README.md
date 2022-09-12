@@ -75,13 +75,8 @@ python3 whatsmyname.py -u anonymouse
 python3 whatsmyname.py -u secretmonkey -s ebay
 ```
 
-# Script Screenshots 📸
+# Screenshot 📸
 
 <p align="center">
-<img width="433" src="https://user-images.githubusercontent.com/104733166/189147136-7d84059b-92ec-4b97-8fca-bca360a9b5fd.png"><p/>
-
-<p align="center">
-<img width="433" height="433" src="https://user-images.githubusercontent.com/104733166/189149501-b2516921-af14-4a78-9770-87014e7f62a3.png"><p/>
-
-
+<img width="433" src="https://user-images.githubusercontent.com/104733166/189768071-2b462432-0256-499a-b8c4-618663e22b62.png"><p/>
 
