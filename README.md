@@ -9,7 +9,7 @@ The script is unofficial and is not part of project WhatsMyname, they have their
 
 The code has been put through Security Bandit to test for any issues, and also through Code Black to get a nice style that fits with PEP8 requirements.
 
-Feel free to use it.
+Feel free to use it, it's open source so that's what it's there for.
 
 <img width="333" src="https://user-images.githubusercontent.com/104733166/189120786-f854c5f8-57df-408c-bf33-b8eda521572c.png">
 
