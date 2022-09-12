@@ -82,7 +82,7 @@ if __name__ == "__main__":
         "-f",
         "--fulllist",
         action="store_true",
-        help="\033[32m\033[1m\nView full sites list on Project WMN | Find site name for a single search\033[0m\n\n",
+        help="\033[32m\033[1m\nView full sites list on Project WMN | Find site name before doing a single search\033[0m\n\n",
     )
 
     parser.add_argument(
@@ -187,7 +187,7 @@ if __name__ == "__main__":
 
             else:
                 print(
-                    "\033[91mThe site you specified can't be verified ;(  , its either not supported or you spelt it wrong!"
+                    "\033[91mThe site you specified can't be verified ;(  , it's either not supported or you spelt it wrong!"
                 )
         else:
             for site in sites:
