@@ -327,16 +327,15 @@
        },
        {
         "name" : "aNobii",
-        "uri_check" : "https://api.anobii.com/users/eid/{account}",
-        "uri_pretty" : "https://www.anobii.com/{account}/profile/activity",
+        "uri_check" : "https://www.anobii.com/{account}/profile/activity",
         "post_body" : "",
         "e_code" : 200,
-        "e_string" : "Anobian since",
+        "e_string" : ">Anobian since",
         "m_string" : "A user matching the specified criteria could not be found",
         "m_code" : 200,
         "known" : ["albertoricci", "trynyty01"],
         "cat" : "hobby",
-        "valid" : false
+        "valid" : true
        },
        {
         "name" : "anonup",
@@ -519,6 +518,19 @@
         "valid" : true
        },
        {
+        "name" : "BabyPips",
+        "uri_check" : "https://forums.babypips.com/u/{account}.json",
+        "uri_pretty" : "https://forums.babypips.com/u/{account}/summary",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "user_badges",
+        "m_string" : "The requested URL or resource could not be found",
+        "m_code" : 404,
+        "known" : ["baemax023", "scottycarsonmvp"],
+        "cat" : "social",
+        "valid" : true
+       },
+       {
         "name" : "Bandcamp",
         "uri_check" : "https://bandcamp.com/{account}",
         "post_body" : "",
@@ -611,9 +623,21 @@
         "e_string" : "| BiggerPockets</title>",
         "m_string" : "Page not found",
         "m_code" : 404,
-        "known" : ["john", "bob"],
+        "known" : ["trustgreene", "chasel9"],
         "cat" : "finance",
-        "valid" : false
+        "valid" : true
+       },
+       {
+        "name" : "BIGO Live",
+        "uri_check" : "https://www.bigo.tv/user/{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "userInfo:{nickName",
+        "m_string" : "userInfo:{}",
+        "m_code" : 200,
+        "known" : ["treasdior", "Jacin19"],
+        "cat" : "gaming",
+        "valid" : true
        },
        {
         "name" : "Bimpos",
@@ -999,6 +1023,18 @@
         "known" : ["dictvm", "sml"],
         "cat" : "social",
         "valid" : true
+       },        
+       {
+        "name" : "chaturbate",
+        "uri_check" : "https://chaturbate.com/{account}/",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "'s Bio and Free Webcam",
+        "m_string" : "It's probably just a broken link",
+        "m_code" : 404,
+        "known" : ["pussylovekate", "kemii"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
        },
        {
         "name" : "cHEEZburger",
@@ -1070,6 +1106,18 @@
         "m_code" : 404,
         "known" : ["bob", "john"],
         "cat" : "tech",
+        "valid" : true
+       },
+       {
+        "name" : "Clubhouse",
+        "uri_check" : "https://www.clubhouse.com/@{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : ">followers</div>",
+        "m_string" : "t find what you were looking for",
+        "m_code" : 404,
+        "known" : ["kirbyplessas", "rohan"],
+        "cat" : "social",
         "valid" : true
        },
        {
@@ -1190,6 +1238,18 @@
         "m_code" : 404,
         "known" : ["john", "blue"],
         "cat" : "art",
+        "valid" : true
+       },        
+       {
+        "name" : "cowboys4angels",
+        "uri_check" : "https://cowboys4angels.com/cowboy/{account}/",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : " | Cowboys 4 Angels |",
+        "m_string" : "<title>Elite Male Escorts",
+        "m_code" : 301,
+        "known" : ["jaxjames", "mike"],
+        "cat" : "XXXPORNXXX",
         "valid" : true
        },
        {
@@ -1652,18 +1712,6 @@
         "valid" : true
        },
        {
-        "name" : "Elftown",
-        "uri_check" : "http://elftown.com/{account}",
-        "post_body" : "",
-        "e_code" : 303,
-        "e_string" : "",
-        "m_string" : "is an unknown",
-        "m_code" : 200,
-        "known" : ["marhiah", "adnama"],
-        "cat" : "social",
-        "valid" : false
-       },
-       {
         "name" : "Ello.co",
         "uri_check" : "https://ello.co/{account}",
         "post_body" : "",
@@ -1770,18 +1818,6 @@
         "known" : ["naughty_nymphomaniac", "hellfireclub", "fabswingers.com"],
         "cat" : "dating",
         "valid" : true
-       },
-       {
-        "name" : "Facenama",
-        "uri_check" : "https://facenama.com/{account}",
-        "post_body" : "",
-        "e_code" : 200,
-        "e_string" : "شبکه اجتماعی فیس نما</title>",
-        "m_string" : "خطای 404",
-        "m_code" : 302,
-        "known" : ["john", "blue"],
-        "cat" : "social",
-        "valid" : false
        },
        {
         "name" : "Faktopedia",
@@ -4019,18 +4055,6 @@
         "valid" : true
        },
        {
-        "name" : "Photoblog",
-        "uri_check" : "https://www.photoblog.com/{account}/",
-        "post_body" : "",
-        "e_code" : 200,
-        "e_string" : "/following/",
-        "m_string" : "Page Not found",
-        "m_code" : 404,
-        "known" : ["hatsumi", "pdsdville"],
-        "cat" : "images",
-        "valid" : false
-       },
-       {
       "name" : "Picsart",
       "uri_check" : "https://picsart.com/u/{account}",
       "post_body" : "",
@@ -4696,18 +4720,6 @@
         "valid" : true
        },
        {
-        "name" : "Skypli",
-        "uri_check" : "https://www.skypli.com/profile/{account}",
-        "post_body" : "",
-        "e_code" : 200,
-        "e_string" : "Skype user profile - skypli.com",
-        "m_string" : "Page not found.",
-        "m_code" : 404,
-        "known" : ["toni.hung", "hadi.awad"],
-        "cat" : "social",
-        "valid" : false
-       },
-       {
         "name" : "Skyrock",
         "uri_check" : "https://{account}.skyrock.com/",
         "post_body" : "",
@@ -5214,6 +5226,18 @@
         "known" : ["john"],
         "cat" : "coding",
         "valid" : true
+       },        
+       {
+        "name" : "Teddygirls",
+        "uri_check" : "https://teddysgirls.net/models/{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : ";s exclusive page to subscribe to her",
+        "m_string" : "The page you were looking for doesn't exist",
+        "m_code" : 404,
+        "known" : ["jaycee-starr", "chubbychick94"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
        },
        {
         "name" : "Teknik",
@@ -5419,18 +5443,6 @@
         "known" : ["john", "peter"],
         "cat" : "social",
         "valid" : true
-       },
-       {
-        "name" : "truth_social",
-        "uri_check" : "https://truthsocial.com/@{account}",
-        "post_body" : "",
-        "e_code" : 200,
-        "e_string" : "(@",
-        "m_string" : "This resource could not be found",
-        "m_code" : 200,
-        "known" : ["Kash", "realDonaldTrump"],
-        "cat" : "social",
-        "valid" : false
        },
        {
         "name" : "tumblr",
@@ -5788,18 +5800,6 @@
         "valid" : true
        },
        {
-        "name" : "vizjer.pl",
-        "uri_check" : "https://vizjer.pl/uzytkownik/{account}",
-        "post_body" : "",
-        "e_code" : 200,
-        "e_string" : "Profil użytkownika",
-        "m_string" : "Ostatnie komentarze",
-        "m_code" : 200,
-        "known" : ["janek", "tomek"],
-        "cat" : "video",
-        "valid" : false
-       },
-       {
         "name" : "VK",
         "uri_check" : "https://vk.com/{account}",
         "post_body" : "",
@@ -5871,6 +5871,18 @@
         "m_code" : 400,
         "known" : ["alex", "peter"],
         "cat" : "hobby",
+        "valid" : true
+       },        
+       {
+        "name" : "Watchmyfeed",
+        "uri_check" : "https://watchmyfeed.com/{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "SEND ME A TIP",
+        "m_string" : "<html lang=",
+        "m_code" : 302,
+        "known" : ["zoe-marie", "shay-loveless"],
+        "cat" : "XXXPORNXXX",
         "valid" : true
        },
        {
