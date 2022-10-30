@@ -56,20 +56,20 @@ python3 whatsmyname.py -c
 ```
 <br>
 
-- Check Project WhatsMyName **Full sites List**:
+- Check the Project WhatsMyName **Full sites List**:
 ```
 python3 whatsmyname.py -f
 ```
 <br>
 
-- Scan Project WhatsMyName full sites list for a **Target Username**:
+- Scan Project WhatsMyName (full sites list) for a single **Target Username**:
 
 ```
 python3 whatsmyname.py -u anonymouse
 ```
 <br>
 
-- **Single Site Search** for a Target Username, fpr example you want to know is secretmonkey is on Ebay:
+- **Single Site Search** for a Target Username, for example you want to know if secretmonkey is on Ebay:
 
 ```
 python3 whatsmyname.py -u secretmonkey -s ebay
