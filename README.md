@@ -5,11 +5,11 @@
 # [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) Python Script 🔍
 As a regular contributor to Project [WhatsMyName](https://whatsmyname.app), this is a python script I made for myself to check if sites are working, and I thoroughly enjoyed making it as I am still at the beginning of my Python journey. 
 
-The script is unofficial and is not part of project WhatsMyname, they have their own python script and I just wanted to experience making my own. Workinf with my own tools means that if I want an imporvement, I have to figure it out myself, which is a good way of training and improving.
+The script is unofficial and is not part of project WhatsMyname, they have their own python script and I just wanted to experience making my own. Working with my own tools means that if I want to advance, I have to figure it out myself, which is a good way of training and improving.
 
-The code has been put through Security Bandit to test for any issues, and also through Code Black to get a nice style that fits with PEP8 requirements.
+The code has been put through `Security Bandit` to test for any issues, and also through `Code Black` to get a nice style that fits with PEP8 requirements.
 
-Feel free to use it, it's open source so that's what it's there for.
+Feel free to use it, it's open source so that's what it's there for! 
 
 <img width="333" src="https://user-images.githubusercontent.com/104733166/189120786-f854c5f8-57df-408c-bf33-b8eda521572c.png">
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ```
 
 # Usage 📖
-I wanted something pretty simple to use, these are the only commands to know:<br>
+I wanted something pretty simple to use, these are the only commands you should know:<br>
 
 <br>
 
@@ -56,20 +56,20 @@ python3 whatsmyname.py -c
 ```
 <br>
 
-- Check Project WhatsMyName **Full sites List**:
+- Check the Project WhatsMyName **Full sites List**:
 ```
 python3 whatsmyname.py -f
 ```
 <br>
 
-- Scan Project WhatsMyName full sites list for a **Target Username**:
+- Scan Project WhatsMyName (full sites list) for a single **Target Username**:
 
 ```
 python3 whatsmyname.py -u anonymouse
 ```
 <br>
 
-- **Single Site Search** for a Target Username, fpr example you want to know is secretmonkey is on Ebay:
+- **Single Site Search** for a Target Username, for example you want to know if secretmonkey is on Ebay:
 
 ```
 python3 whatsmyname.py -u secretmonkey -s ebay
