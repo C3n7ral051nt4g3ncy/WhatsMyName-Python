@@ -43,7 +43,7 @@ def banner():
         """\033[39m\033[1m
        by C3n7ral051nt4g3ncy
        github.com/WebBreacher/WhatsMyName\n\n
-      \033[32m\033[1m\033[40mUsage: python3 whatsmyname.py -h\033[0m\n\n"""
+      \033[32m\033[1mUsage: python3 whatsmyname.py -h\033[0m\n\n"""
     )
 
     time.sleep(1)
@@ -128,7 +128,7 @@ if __name__ == "__main__":
             data = f.read()
             total = data.count(search_word)
             print(
-                "\033[32m\033[1mTotal Number\033[0m\033[32m of sites currently supported on \033[1mProject WhatsMyName  \033[40m -->",
+                "\033[32m\033[1mTotal Number\033[0m\033[32m of sites currently supported on \033[1mProject WhatsMyName --> ",
                 total,
             )
 
