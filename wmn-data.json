@@ -1969,6 +1969,21 @@
         "valid" : true
        },
        {
+        "name" : "eToro",
+        "uri_check" : "https://www.etoro.com/api/logininfo/v1.1/users/{account}",
+        "uri_pretty" : "https://www.etoro.com/people/{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "– eToro</title>",
+        "m_string" : "Sign Into Your Account</title>",
+        "m_code" : 200,
+        "known" : ["nelexlian", "amitkup"],
+        "cat" : "finance",
+        "valid" : true
+
+
+       },
+       {
         "name" : "Mastodon-EU_Voice",
         "uri_check" : "https://social.network.europa.eu/@{account}",
         "post_body" : "",
@@ -2561,6 +2576,19 @@
         "m_string" : "Not found.",
         "m_code" : 404,
         "known" : ["xin", "dev"],
+        "cat" : "coding",
+        "valid" : true
+       },        
+       {
+        "name" : "giters",
+        "uri_check" : "https://giters.com/{account}", 
+        "post_body" : "",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : " - Giters</title>",
+        "m_string" : "This page could not be found</title>",
+        "m_code" : 404,
+        "known" : ["WebBreacher", "C3n7ral051nt4g3ncy"],
         "cat" : "coding",
         "valid" : true
        },
@@ -3547,6 +3575,18 @@
         "known" : ["jill", "john"],
         "allowed_types" : ["String","Person","WebAccount","Username"],
         "cat" : "blog",
+        "valid" : true
+       },
+       {
+        "name" : "livemaster.ru",
+        "uri_check" : "https://www.livemaster.ru/{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "<title>Магазин мастера",
+        "m_string" : "<title>Вы попали на несуществующую страницу",
+        "m_code" : 404,
+        "known" : ["redart", "ellentoy"],
+        "cat" : "shopping",
         "valid" : true
        },
        {
@@ -6393,12 +6433,13 @@
        },
        {
         "name" : "TikTok",
-        "uri_check" : "https://www.tiktok.com/@{account}?lang=en",
+        "uri_check" : "https://www.tiktok.com/oembed?url=https://www.tiktok.com/@{account}",
+        "uri_pretty" : "https://www.tiktok.com/@{account}?lang=en",
         "post_body" : "",
         "e_code" : 200,
-        "e_string" : "title=\"Following\"",
-        "m_string" : "Couldn't find this account",
-        "m_code" : 404,
+        "e_string" : "author_url",
+        "m_string" : "Something went wrong",
+        "m_code" : 400,
         "known" : ["gordonramsayofficial", "pookiebear73"],
         "cat" : "social",
         "valid" : true
@@ -6581,10 +6622,10 @@
         "uri_pretty" : "https://twitter.com/{account}",
         "post_body" : "",
         "e_code" : 200,
-        "e_string" : ")|nitter</title>",
-        "m_string" : "<title>Error|nitter</title>",
+        "e_string" : "| nitter</title>",
+        "m_string" : "<title>Error |",
         "m_code" : 404,
-        "known" : ["webbreacher", "chrishemsworth"],
+        "known" : ["WebBreacher", "OSINT_Tactical"],
         "cat" : "social",
         "valid" : true
        },
@@ -6936,7 +6977,7 @@
         "uri_check" : "https://vk.com/{account}",
         "post_body" : "",
         "e_code" : 200,
-        "e_string" : " | VK</title>",
+        "e_string" : "id=\"profile\"",
         "m_string" : "404 Not Found",
         "m_code" : 404,
         "known" : ["ches_ches", "mike.kidlazy"],
