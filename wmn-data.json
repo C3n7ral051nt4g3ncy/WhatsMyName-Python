@@ -656,7 +656,7 @@
         "uri_check" : "https://bentbox.co/{account}",
         "post_body" : "",
         "e_code" : 200,
-        "e_string" : "BentBox photos and videos",
+        "e_string" : "<div id=\"user_bar\">",
         "m_string" : "This user is currently not available",
         "m_code" : 200,
         "known" : ["brockdoom", "witchhouse", "hotoptics"],
@@ -1981,19 +1981,6 @@
         "valid" : true
        },
        {
-        "name" : "eToro",
-        "uri_check" : "https://www.etoro.com/api/logininfo/v1.1/users/{account}",
-        "uri_pretty" : "https://www.etoro.com/people/{account}",
-        "post_body" : "",
-        "e_code" : 200,
-        "e_string" : "– eToro</title>",
-        "m_string" : "Sign Into Your Account</title>",
-        "m_code" : 200,
-        "known" : ["nelexlian", "amitkup"],
-        "cat" : "finance",
-        "valid" : true
-       },
-       {
         "name" : "Mastodon-EU_Voice",
         "uri_pretty" : "https://social.network.europa.eu/@{account}",
         "uri_check" : "https://social.network.europa.eu/api/v1/accounts/lookup?acct={account}",
@@ -2592,7 +2579,7 @@
        },
        {
         "name" : "giters",
-        "uri_check" : "https://giters.com/{account}", 
+        "uri_check" : "https://giters.com/{account}",
         "post_body" : "",
         "e_code" : 200,
         "e_string" : " - Giters</title>",
@@ -2845,7 +2832,7 @@
         "known" : ["hello", "iuulaio"],
         "cat" : "social",
         "valid" : true
-       },       
+       },
        {
         "name" : "Heylink",
         "uri_check" : "https://heylink.me/{account}/",
@@ -3783,6 +3770,18 @@
         "valid" : true
        },
        {
+        "name" : "masto.ai",
+        "uri_check" : "https://masto.ai/@{account}",
+        "post_body" : "",
+        "e_code" : 200,
+        "e_string" : "@masto.ai) - Mastodon</title>",
+        "m_string" : "The page you are looking for isn&#39;t here.",
+        "m_code" : 404,
+        "known" : ["rbreich", "stux"],
+        "cat" : "social",
+        "valid" : true
+       },
+       {
         "name" : "Masto.nyc (Mastodon Instance)",
         "uri_check" : "https://masto.nyc/api/v1/accounts/lookup?acct={account}",
         "uri_pretty" : "https://masto.nyc/@{account}",
@@ -4558,7 +4557,7 @@
         "m_code" : 200,
         "known" : ["janek", "test"],
         "cat" : "shopping",
-        "valid" : true
+        "valid" : false
        },
        {
         "name" : "omlet",
@@ -4729,11 +4728,11 @@
         "known" : ["test", "john"],
         "cat" : "tech",
         "valid" : true
-       },        
+       },
        {
         "name" : "patch",
         "uri_check" : "https://patch.com/users/{account}",
-        "post_body" : "",        
+        "post_body" : "",
         "e_code" : 200,
         "e_string" : "<title>Patch User Profile",
         "m_string" : "<title>Page not found</title>",
@@ -4947,11 +4946,11 @@
         "known" : ["test123", "frickcollection"],
         "cat" : "social",
         "valid" : true
-       },        
+       },
        {
         "name" : "pixelfed.social",
         "uri_check" : "https://pixelfed.social/{account}",
-        "post_body" : "",       
+        "post_body" : "",
         "e_code" : 200,
         "e_string" : "on pixelfed</title>",
         "m_string" : "<title>pixelfed</title>",
@@ -7044,7 +7043,7 @@
         "known" : ["vmstan", "honestdave"],
         "cat" : "social",
         "valid" : true
-       },       
+       },
        {
         "name" : "Voice123",
         "uri_check" : "https://voice123.com/api/providers/search/{account}",
