@@ -393,8 +393,8 @@
         "uri_check" : "https://projecthub.arduino.cc/{account}",
         "e_code" : 200,
         "e_string" : "| Arduino Project Hub",
-        "m_string" : "Arduino Project Hub",
-        "m_code" : 404,
+        "m_string" : "Oh no! Nothing to discover here.",
+        "m_code" : 200,
         "known" : ["peter", "john"],
         "cat" : "tech",
         "valid" : true
@@ -746,11 +746,11 @@
         "valid" : true
        },
        {
-        "name" : "bonga_cams",
-        "uri_check" : "https://pt.bongacams.com/{account}",
+        "name" : "Bonga Cams",
+        "uri_check" : "https://bongacams.com/{account}",
         "e_code" : 200,
-        "e_string" : "Chat público ao vivo de",
-        "m_string" : "Câmaras de sexo free: chat pornô ao vivo",
+        "e_string" : "Last Broadcast",
+        "m_string" : "THE PAGE CANNOT BE FOUND",
         "m_code" : 404,
         "known" : ["prettykatea", "milaowens"],
         "cat" : "XXXPORNXXX",
@@ -890,6 +890,28 @@
         "valid" : true
        },
        {
+        "name" : "Cams.com",
+        "uri_check" : "https://cams.com/{account}",
+        "e_code" : 200,
+        "e_string" : "screen_name",
+        "m_string" : "isModelNotFound\":true",
+        "m_code" : 404,
+        "known" : ["AishaDean", "julylopez27"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
+        "name" : "CamSoda",
+        "uri_check" : "https://www.camsoda.com/{account}",
+        "e_code" : 200,
+        "e_string" : "avatarUrl",
+        "m_string" : "Error, page not found",
+        "m_code" : 404,
+        "known" : ["miaandmarkk", "mariannefox1"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
         "name" : "Carbonmade",
         "uri_check" : "https://{account}.carbonmade.com/",
         "invalid_chars" : ".",
@@ -1017,10 +1039,10 @@
         "name" : "chaturbate",
         "uri_check" : "https://chaturbate.com/{account}/",
         "e_code" : 200,
-        "e_string" : "'s Bio and Free Webcam",
+        "e_string" : "Last Broadcast",
         "m_string" : "It's probably just a broken link",
         "m_code" : 404,
-        "known" : ["pussylovekate", "kemii"],
+        "known" : ["katestone_again", "kemii"],
         "cat" : "XXXPORNXXX",
         "valid" : true
        },
@@ -1044,6 +1066,17 @@
         "m_code" : 404,
         "known" : ["test", "janek"],
         "cat" : "images",
+        "valid" : true
+       },
+       {
+        "name" : "CHERRY.TV",
+        "uri_check" : "https://cherry.tv/{account}",
+        "e_code" : 200,
+        "e_string" : "\"username",
+        "m_string" : "This isn’t the page you’re looking for",
+        "m_code" : 404,
+        "known" : ["leebaby", "lillythompson"],
+        "cat" : "XXXPORNXXX",
         "valid" : true
        },
        {
@@ -2005,6 +2038,17 @@
         "valid" : true
        },
        {
+        "name" : "Flirt4Free",
+        "uri_check" : "https://www.flirt4free.com/models/bios/{account}/about.php",
+        "e_code" : 200,
+        "e_string" : "Customers rated",
+        "m_string" : "<title>Webcam Model Directory | Flirt4Free</title>",
+        "m_code" : 200,
+        "known" : ["ava-dangelo", "emma-lawrennce"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
         "name" : "flowcode",
         "uri_check" : "https://www.flowcode.com/page/{account}",
         "e_code" : 200,
@@ -2319,7 +2363,7 @@
        },
        {
         "name" : "GitHubPlus",
-        "uri_check" : "https://githubplus.com/{account}",        
+        "uri_check" : "https://githubplus.com/{account}",
         "e_code" : 200,
         "e_string" : ": - Github Plus</title>",
         "m_string" : "<title>Not Found</title>",
@@ -2800,6 +2844,17 @@
         "valid" : true
        },
        {
+        "name" : "ImLive",
+        "uri_check" : "https://imlive.com/live-sex-chat/cam-girls/sexcamvideos-{account}/",
+        "e_code" : 200,
+        "e_string" : "About Me</span>",
+        "m_string" : "<title>ImLive.com - Page Not Found</title>",
+        "m_code" : 404,
+        "known" : ["XTheBrunetteX", "candyfeng18"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
         "name" : "inaturalist",
         "uri_check" : "https://inaturalist.nz/people/{account}",
         "e_code" : 200,
@@ -2853,6 +2908,17 @@
         "m_string" : "Nothing found!",
         "m_code" : 404,
         "known" : ["katyperry", "kirbstr"],
+        "cat" : "social",
+        "valid" : true
+       },
+       {
+        "name" : "Instagram_archives",
+        "uri_check" : "https://archive.org/wayback/available?url=https://instagram.com/{account}/",
+        "e_code" : 200,
+        "e_string" : "\"archived_snapshots\": {\"closest\"",
+        "m_string" : "\"archived_snapshots\": {}}",
+        "m_code" : 200,
+        "known" : ["zuck", "jack"],
         "cat" : "social",
         "valid" : true
        },
@@ -3208,6 +3274,18 @@
         "m_code" : 404,
         "known" : ["john", "bob"],
         "cat" : "tech",
+        "valid" : true
+       },
+       {
+        "name" : "LIVEJASMIN",
+        "uri_check" : "https://www.livejasmin.com/en/my-content/wall/get/all/{account}/0",
+        "uri_pretty" : "https://www.livejasmin.com/en/girls#!chat/{account}",
+        "e_code" : 200,
+        "e_string" : "success",
+        "m_string" : "",
+        "m_code" : 301,
+        "known" : ["MilyThomas", "ChantelClark"],
+        "cat" : "XXXPORNXXX",
         "valid" : true
        },
        {
@@ -3750,6 +3828,17 @@
         "valid" : true
        },
        {
+        "name" : "Model hub",
+        "uri_check" : "https://www.modelhub.com/{account}/videos",
+        "e_code" : 200,
+        "e_string" : "<span>Modelhub Rank",
+        "m_string" : "Oops, the page you are looking for doesn't exist or another error occurred",
+        "m_code" : 404,
+        "known" : ["missbnasty", "indigo-white"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
         "name" : "Moneysavingexpert",
         "uri_check" : "https://forums.moneysavingexpert.com/profile/{account}",
         "e_code" : 200,
@@ -4129,17 +4218,6 @@
         "known" : ["nastya3", "nastya"],
         "cat" : "misc",
         "valid" : true
-       },
-       {
-        "name" : "olx",
-        "uri_check" : "https://www.olx.pl/oferty/uzytkownik/{account}/",
-        "e_code" : 200,
-        "e_string" : "Obserwuj wyszukiwanie",
-        "m_string" : "Przepraszamy, ale nie możemy znaleźć takiej strony...",
-        "m_code" : 200,
-        "known" : ["janek", "test"],
-        "cat" : "shopping",
-        "valid" : false
        },
        {
         "name" : "Opencollective",
@@ -5481,19 +5559,6 @@
         "valid" : true
        },
        {
-        "name" : "SpankPay",
-        "uri_check" : "https://api.spankpay.com/graphql",
-        "uri_pretty" : "https://spankpay.me/{account}",
-        "post_body" : "NEED TO FIX THIS",
-        "e_code" : 200,
-        "e_string" : "headerPhoto",
-        "m_string" : "User not found",
-        "m_code" : 404,
-        "known" : ["Medroxy","brittanyandrews"],
-        "cat" : "finance",
-        "valid" : false
-       },
-       {
         "name" : "Speaker Deck",
         "uri_check" : "https://speakerdeck.com/{account}/",
         "e_code" : 200,
@@ -5623,7 +5688,7 @@
         "e_string" : "I Do in My Shows:",
         "m_string" : "Oops. The page you were looking for doesn't exist",
         "m_code" : 404,
-        "known" : ["DulcieRichard", "Katie-Mili"],
+        "known" : ["Eva-Lung", "katyaaxo"],
         "cat" : "XXXPORNXXX",
         "valid" : true
        },
@@ -5896,7 +5961,7 @@
        },
        {
         "name" : "thoughts",
-        "uri_check" : "https://thoughts.com/members/{account}/",        
+        "uri_check" : "https://thoughts.com/members/{account}/",
         "e_code" : 200,
         "e_string" : "<span class=\"activity",
         "m_string" : "<title>Page not found",
@@ -6044,7 +6109,6 @@
        {
         "name" : "Truth Social",
         "uri_check" : "https://truthsocial.com/api/v1/accounts/lookup?acct={account}",
-        "uri_pretty" : "https://www.truthsocial.com/@{account}",
         "e_code" : 200,
         "e_string" : "display_name",
         "m_string" : "Record not found",
@@ -6295,7 +6359,7 @@
        },
        {
         "name" : "vapenews",
-        "uri_check" : "https://vapenews.ru/profile/{account}",        
+        "uri_check" : "https://vapenews.ru/profile/{account}",
         "e_code" : 200,
         "e_string" : "<title inertia>Профиль</title></head>",
         "m_string" : "<title>404</title>",
@@ -6361,7 +6425,7 @@
        },
        {
         "name" : "Viewbug",
-        "uri_check" : "https://www.viewbug.com/member/{account}",        
+        "uri_check" : "https://www.viewbug.com/member/{account}",
         "e_code" : 200,
         "e_string" : "s Photos - VIEWBUG.com </title>",
         "m_string" : "<title>Missing Page - VIEWBUG.com",
@@ -6567,6 +6631,17 @@
         "valid" : true
        },
        {
+        "name" : "WECAMGIRLS",
+        "uri_check" : "https://www.wecamgirls.com/includes/ajax/coolautosuggest.php?chars={account}",
+        "e_code" : 200,
+        "e_string" : "\"id\":",
+        "m_string" : "[]",
+        "m_code" : 200,
+        "known" : ["sherrybaby", "megansweet"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
         "name" : "weebly",
         "uri_check" : "https://{account}.weebly.com/",
         "invalid_chars" : ".",
@@ -6769,6 +6844,17 @@
         "valid" : true
        },
        {
+        "name" : "xcams",
+        "uri_check" : "https://www.xcams.com/chatfs/{account}/?btnFree=1",
+        "e_code" : 200,
+        "e_string" : "cammerModelData",
+        "m_string" : "<title>xcams - Not Found</title>",
+        "m_code" : 404,
+        "known" : ["TatianaWild", "Isacris"],
+        "cat" : "XXXPORNXXX",
+        "valid" : true
+       },
+       {
         "name" : "xHamster",
         "uri_check" : "https://xhamster.com/users/{account}",
         "e_code" : 200,
@@ -6924,7 +7010,7 @@
        },
        {
         "name" : "Zepeto",
-        "uri_check" : "https://user.zepeto.me/{account}?language=en",        
+        "uri_check" : "https://user.zepeto.me/{account}?language=en",
         "e_code" : 200,
         "e_string" : "content=\"How would you look as an avatar? Look at mine!",
         "m_string" : "<title>ZEPETO</title>",
