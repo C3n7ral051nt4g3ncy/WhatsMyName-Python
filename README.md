@@ -80,3 +80,9 @@ python3 whatsmyname.py -u secretmonkey -s ebay
 <p align="center">
 <img width="433" src="https://user-images.githubusercontent.com/104733166/189768071-2b462432-0256-499a-b8c4-618663e22b62.png"><p/>
 
+
+# Future Improvements🔮
+
+To make links clickable, this should be coming in summer 2024! 
+
+
