@@ -5,14 +5,13 @@
 # Version         : Version 0.1
 # Support         : Please do not support me, Support this project --> https://github.com/WebBreacher/WhatsMyName
 
-# Py Libs
 import sys
 import time
 import argparse
 import json
 import requests
 from tqdm import tqdm
-
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 
 # script banner
 def banner():
@@ -45,16 +44,27 @@ def banner():
        github.com/WebBreacher/WhatsMyName\n\n
       \033[32m\033[1mUsage: python3 whatsmyname.py -h\033[0m\n\n"""
     )
-
     time.sleep(1)
 
-
-# Get data from inside the 'wmn_data.json' file
+# Get data from inside the 'wmn-data.json' file
 def read_json():
     with open("wmn-data.json", "r", encoding="utf-8") as f:
         data = json.load(f)
         return data
 
+def check_site(site, username, headers):
+    site_name = site["name"]
+    uri_check = site["uri_check"].format(account=username)
+    try:
+        res = requests.get(uri_check, headers=headers, timeout=10)
+        estring_pos = site["e_string"] in res.text
+        estring_neg = site["m_string"] in res.text
+
+        if res.status_code == site["e_code"] and estring_pos and not estring_neg:
+            return site_name, uri_check
+    except:
+        pass
+    return None
 
 # main
 if __name__ == "__main__":
@@ -64,7 +74,7 @@ if __name__ == "__main__":
     # Argparse arguments
     parser = argparse.ArgumentParser(
         description="Scan all sites on Project WhatsMyName for a target username "
-        "and wait for\033[32m\033[1m positive\033[0m identification."
+                    "and wait for\033[32m\033[1m positive\033[0m identification."
     )
 
     parser.add_argument(
@@ -96,19 +106,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     username = args.username
-
     singlesearch = args.singlesearch
-
     countsites = args.countsites
-
     fulllist = args.fulllist
+
+    found_sites = []
 
     # Get full list of sites currently supported on Project WhatsMyName
     if fulllist:
-
         for i in tqdm(range(10)):
             time.sleep(0.06)
-
         for site in data["sites"]:
             site_name = site["name"]
             print(
@@ -122,7 +129,6 @@ if __name__ == "__main__":
     if countsites:
         for i in tqdm(range(10)):
             time.sleep(0.1)
-
         search_word = "uri_check"
         with open("wmn-data.json", "r") as f:
             data = f.read()
@@ -134,7 +140,6 @@ if __name__ == "__main__":
 
     # Scan all websites for target username confirmation
     if username:
-
         headers = {
             "Accept": "text/html, application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "accept-language": "en-US;q=0.9,en,q=0,8",
@@ -146,75 +151,45 @@ if __name__ == "__main__":
             "https://raw.githubusercontent.com/WebBreacher/WhatsMyName/main/wmn-data.json"
         )
         sites = response.json()["sites"]
-        if singlesearch:
-            if singlesearch[0].lower() in [s["name"].lower() for s in sites]:
-                for site in sites:
-                    uri_check = site["uri_check"]
-                    site_name = site["name"]
 
-                    if site_name.lower() == singlesearch[0].lower():
-                        uri_check = uri_check.format(account=username)
+        total_sites = len(sites)
+        found_sites = []
 
+        try:
+            with ThreadPoolExecutor(max_workers=20) as executor:
+                futures = {executor.submit(check_site, site, username, headers): site for site in sites}
+
+                with tqdm(total=total_sites, desc="Checking sites") as pbar:
+                    completed = 0
+                    for future in as_completed(futures):
                         try:
-                            res = requests.get(uri_check, headers=headers)
+                            result = future.result()
+                            if result:
+                                site_name, uri_check = result
+                                found_sites.append(site_name)
+                                print("\033[32m" + "-" * 133)
+                                print(f"\033[32m[+] \033[1mTarget found\033[0m\033[32m ✓ on: \033[1m{site_name}\033[0m")
+                                print(f"\033[32m[+] Profile URL:\033[1m {uri_check}\033[0m")
+                                print("\033[32m" + "-" * 133)
+                        except:
+                            pass
+                        finally:
+                            completed += 1
+                            pbar.n = completed
+                            pbar.refresh()
 
-                            estring_pos = res.text.find(site["e_string"]) > 0
+        except TimeoutError:
+            print("Some sites took too long to respond and were skipped.")
 
-                            estring_neg = res.text.find(site["m_string"]) > 0
+        # Ensure the progress bar reaches 100%
+        pbar.n = total_sites
+        pbar.refresh()
 
-                        except Exception as e:
-                            print(
-                                f"\033[91mNot able to verify the website [{singlesearch}]! please use the correct name"
-                            )
-                            break
-
-                        if res.status_code == 200 and estring_pos:
-                            print("\033[32m-" * 133)
-                            print(
-                                f"\033[32m[+] \033[1mTarget found\033[0m\033[32m ✓ on:\033[1m    \033[40m{site_name}\033[0m"
-                            )
-                            print(
-                                f"\033[32m[+] Profile URL:\033[1m          {uri_check}\033[0m"
-                            )
-                            print("\033[32m\033[1m-" * 133)
-
-                        if estring_neg:
-                            print("\033[32m\033[1m-" * 133)
-                            print(
-                                f"\033[91m[-]Target not found on:  \033[1m", site_name
-                            )
-                        break
-
-            else:
-                print(
-                    "\033[91mThe site you specified can't be verified ;(  , it's either not supported or you spelt it wrong!"
-                )
+        print("\nChecked all sites.")
+        if found_sites:
+            print(f"\nThe user \033[1m{username}\033[0m was found on {len(found_sites)} sites:")
+            for site in found_sites:
+                print(f"- \033[32m{site}\033[0m")
         else:
-            for site in sites:
-                uri_check = site["uri_check"]
-                site_name = site["name"]
-                uri_check = uri_check.format(account=username)
+            print(f"\nNo sites found for the user \033[1m{username}\033[0m.")
 
-                try:
-                    res = requests.get(uri_check, headers=headers)
-
-                    estring_pos = res.text.find(site["e_string"]) > 0
-
-                    estring_neg = res.text.find(site["m_string"]) > 0
-
-                except Exception as e:
-                    continue
-
-                if res.status_code == 200 and estring_pos:
-                    print("\033[32m-" * 133)
-                    print(
-                        f"\033[32m[+] \033[1mTarget found\033[0m\033[32m ✓ on:\033[1m    \033[40m{site_name}\033[0m"
-                    )
-                    print(
-                        f"\033[32m[+] Profile URL:\033[1m          {uri_check}\033[0m"
-                    )
-                    print("\033[32m\033[1m-" * 133)
-
-                if estring_neg:
-                    print("\033[32m\033[1m-\033[0m" * 133)
-                    print(f"\033[31m[-]Target not found on:  \033[1m", site_name)
