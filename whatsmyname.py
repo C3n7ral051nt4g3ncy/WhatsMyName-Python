@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # File name       : whatsmyname.py
-# By              : C3n7ral051nt4g3ncy | aka OSINT Tactical https://github.com/C3n7ral051nt4g3ncy
-# Usage           : 1.Scan for Target Username | 2.Current supported sites list | 3.Total number of sites | 4. Single Search
-# Version         : Version 0.1
+# By              : C3n7ral051nt4g3ncy (aka OSINT Tactical) https://github.com/C3n7ral051nt4g3ncy
+# Usage           : 1.Scan for Username | 2.Current supported sites list | 3.Total number of sites | 4. Single Search
+# Version         : Version 1.1
 # Support         : Please do not support me, Support this project --> https://github.com/WebBreacher/WhatsMyName
 
 import sys
@@ -44,9 +44,8 @@ def banner():
        github.com/WebBreacher/WhatsMyName\n\n
       \033[32m\033[1mUsage: python3 whatsmyname.py -h\033[0m\n\n"""
     )
-    time.sleep(1)
 
-# Get data from inside the 'wmn-data.json' file
+# Get data from the 'wmn-data.json' file
 def read_json():
     with open("wmn-data.json", "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -65,6 +64,51 @@ def check_site(site, username, headers):
     except:
         pass
     return None
+
+#generate .HTML Report at the end of the username scan
+def generate_html_report(username, found_sites):
+    html_content = f"""
+    <html>
+    <head>
+        <title>WhatsMyName Report for {username}</title>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+            }}
+            table {{
+                width: 100%;
+                border-collapse: collapse;
+            }}
+            th, td {{
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }}
+            th {{
+                background-color: #f2f2f2;
+            }}
+        </style>
+    </head>
+    <body>
+        <h1>WhatsMyName Report for {username}</h1>
+        <table>
+            <tr>
+                <th>Website Name</th>
+                <th>Profile URL</th>
+            </tr>"""
+    for site_name, uri_check in found_sites:
+        html_content += f"""
+            <tr>
+                <td>{site_name}</td>
+                <td><a href="{uri_check}" target="_blank">{uri_check}</a></td>
+            </tr>"""
+    html_content += """
+        </table>
+    </body>
+    </html>"""
+
+    with open(f"whatsmyname_report_{username}.html", "w") as report_file:
+        report_file.write(html_content)
 
 # main
 if __name__ == "__main__":
@@ -112,7 +156,7 @@ if __name__ == "__main__":
 
     found_sites = []
 
-    # Get full list of sites currently supported on Project WhatsMyName
+    # Get full list of sites supported on Project WhatsMyName
     if fulllist:
         for i in tqdm(range(10)):
             time.sleep(0.06)
@@ -138,13 +182,13 @@ if __name__ == "__main__":
                 total,
             )
 
-    # Scan all websites for target username confirmation
+    # Scan all websites for the username 
     if username:
         headers = {
             "Accept": "text/html, application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "accept-language": "en-US;q=0.9,en,q=0,8",
             "accept-encoding": "gzip, deflate",
-            "user-Agent": "Mozilla/5.0 (Windows NT 10.0;Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+            "user-Agent": "Mozilla/5.0 (Windows NT 10.0;Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
         }
 
         response = requests.get(
@@ -166,10 +210,10 @@ if __name__ == "__main__":
                             result = future.result()
                             if result:
                                 site_name, uri_check = result
-                                found_sites.append(site_name)
+                                found_sites.append((site_name, uri_check))
                                 print("\033[32m" + "-" * 133)
                                 print(f"\033[32m[+] \033[1mTarget found\033[0m\033[32m ✓ on: \033[1m{site_name}\033[0m")
-                                print(f"\033[32m[+] Profile URL:\033[1m {uri_check}\033[0m")
+                                print(f"\033[32m[+] Profile URL: {uri_check}\033[0m")
                                 print("\033[32m" + "-" * 133)
                         except:
                             pass
@@ -188,8 +232,12 @@ if __name__ == "__main__":
         print("\nChecked all sites.")
         if found_sites:
             print(f"\nThe user \033[1m{username}\033[0m was found on {len(found_sites)} sites:")
-            for site in found_sites:
-                print(f"- \033[32m{site}\033[0m")
+            for site_name, uri_check in found_sites:
+                print(f"- \033[32m{site_name}\033[0m: {uri_check}")
+
+            # Generate HTML report
+            generate_html_report(username, found_sites)
+            print(f"\nHTML report generated: whatsmyname_report_{username}.html")
         else:
             print(f"\nNo sites found for the user \033[1m{username}\033[0m.")
 
