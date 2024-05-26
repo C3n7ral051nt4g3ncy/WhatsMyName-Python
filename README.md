@@ -2,7 +2,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-# [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) Python Script 🔍
+# [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) Python Script V1.2 🔍
 As a regular contributor to Project [WhatsMyName](https://whatsmyname.app), this is a python script I made for myself to check if sites are working, and I thoroughly enjoyed making it.. 
 
 The script is unofficial and is not part of project WhatsMyname.
