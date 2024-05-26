@@ -81,8 +81,14 @@ python3 whatsmyname.py -u secretmonkey -s ebay
 <img width="433" src="https://user-images.githubusercontent.com/104733166/189768071-2b462432-0256-499a-b8c4-618663e22b62.png"><p/>
 
 
-# Future Improvements🔮
+# Latest Improvements 🚀
 
-To make links clickable, this should be coming in summer 2024! 
+- Links were made clickable (May 2024), Special thanks to [boringthegod](https://github.com/boringthegod) for the request and idea.
+- The scan is now much faster (May 2024), and is still accurate. (But it's always worth comparing with WhatsMyName Web to be on the safe side).
+- **HTML Report Generation** (May 2024): The user now gets a .html report at the end of the scan, all links are in one place, and can be clicked, or kept somewhere as proof.
+
+
+
+
 
 
