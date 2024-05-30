@@ -87,6 +87,27 @@ python3 whatsmyname.py -u secretmonkey -s ebay
 - The scan is now much faster (May 2024), and is still accurate. (But it's always worth comparing with WhatsMyName Web to be on the safe side).
 - **HTML Report Generation** (May 2024): The user now gets a .html report at the end of the scan, all links are in one place, and can be clicked, or kept somewhere as proof.
 
+# Contributors 🎉
+
+Huge thanks to the following contributors for their valuable contributions to this project:
+
+
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/hippiiee">
+                <img src="https://avatars.githubusercontent.com/u/41185722?v=4" width="99;" alt="@hippiiee"/>
+                <br />
+                <sub><b>@Hippiiee</b></sub>
+            </a>
+     
+<br>
+<br>
+
+To add yourself to this list, please make a pull request with your GitHub username.
+
+
+
 
 
 
