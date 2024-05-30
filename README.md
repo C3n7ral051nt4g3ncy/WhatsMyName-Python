@@ -78,7 +78,9 @@ python3 whatsmyname.py -u secretmonkey -s ebay
 # Screenshot 📸
 
 <p align="center">
-<img width="433" src="https://user-images.githubusercontent.com/104733166/189768071-2b462432-0256-499a-b8c4-618663e22b62.png"><p/>
+<img width="633" src="https://github.com/C3n7ral051nt4g3ncy/WhatsMyName-Python/assets/104733166/408d7df6-1408-4884-8b99-933e0213f292.png"><p/>
+
+
 
 
 # Latest Improvements 🚀
