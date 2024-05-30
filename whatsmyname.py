@@ -30,26 +30,16 @@ def banner():
 ⠀⠀⠀⠀  ⠈⠻⣿⣦⡀⠀⠀⠀⠀⠀⢀⣿⣿⠇⠀⣾⡿⢠⣿⡇⠀⠀⠀⠀⠀⢀⣴⣿⠟⠁⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀   ⠈⠻⣿⣦⠀⠀⠀⢸⣿⣿⠀⣼⣿⠁⠈⠉⠀⠀⠀⠀⢰⣿⠟⠁⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠙⠉⠀⠙⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀
-             < WebBreacher >"""
-    )
-    print(
-        """ \033[32m\033[1m
+             < WebBreacher >
+         \033[32m\033[1m
        ╦ ╦┬ ┬┌─┐┌┬┐┌─┐╔╦╗┬ ┬╔╗╔┌─┐┌┬┐┌─┐
        ║║║├─┤├─┤ │ └─┐║║║└┬┘║║║├─┤│││├┤ 
-       ╚╩╝┴ ┴┴ ┴ ┴ └─┘╩ ╩ ┴ ╝╚╝┴ ┴┴ ┴└─┘ Version 1.0"""
-    )
-    print(
-        """\033[39m\033[1m
+       ╚╩╝┴ ┴┴ ┴ ┴ └─┘╩ ╩ ┴ ╝╚╝┴ ┴┴ ┴└─┘ Version 1.2
+        \033[39m\033[1m
        by C3n7ral051nt4g3ncy
        github.com/WebBreacher/WhatsMyName\n\n
       \033[32m\033[1mUsage: python3 whatsmyname.py -h\033[0m\n\n"""
     )
-
-# Get data from the 'wmn-data.json' file
-def read_json():
-    with open("wmn-data.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-        return data
 
 def check_site(site, username, headers):
     site_name = site["name"]
@@ -113,7 +103,15 @@ def generate_html_report(username, found_sites):
 # main
 if __name__ == "__main__":
     banner()
-    data = read_json()
+    headers = {
+        "Accept": "text/html, application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "accept-language": "en-US;q=0.9,en,q=0,8",
+        "accept-encoding": "gzip, deflate",
+        "user-Agent": "Mozilla/5.0 (Windows NT 10.0;Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+    }
+    # Fetch wmn-data from WhatsMyName repository
+    response = requests.get("https://raw.githubusercontent.com/WebBreacher/WhatsMyName/main/wmn-data.json")
+    data = response.json()
 
     # Argparse arguments
     parser = argparse.ArgumentParser(
@@ -174,27 +172,15 @@ if __name__ == "__main__":
         for i in tqdm(range(10)):
             time.sleep(0.1)
         search_word = "uri_check"
-        with open("wmn-data.json", "r") as f:
-            data = f.read()
-            total = data.count(search_word)
-            print(
-                "\033[32m\033[1mTotal Number\033[0m\033[32m of sites currently supported on \033[1mProject WhatsMyName --> ",
-                total,
-            )
+        total = sum(1 for site in data["sites"] if search_word in site)
+        print(
+            "\033[32m\033[1mTotal Number\033[0m\033[32m of sites currently supported on \033[1mProject WhatsMyName --> ",
+            total,
+        )
 
     # Scan all websites for the username 
     if username:
-        headers = {
-            "Accept": "text/html, application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "accept-language": "en-US;q=0.9,en,q=0,8",
-            "accept-encoding": "gzip, deflate",
-            "user-Agent": "Mozilla/5.0 (Windows NT 10.0;Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
-        }
-
-        response = requests.get(
-            "https://raw.githubusercontent.com/WebBreacher/WhatsMyName/main/wmn-data.json"
-        )
-        sites = response.json()["sites"]
+        sites = data["sites"]
 
         total_sites = len(sites)
         found_sites = []
