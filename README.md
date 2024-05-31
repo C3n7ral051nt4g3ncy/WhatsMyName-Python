@@ -80,6 +80,12 @@ python3 whatsmyname.py -u secretmonkey -s ebay
 <p align="center">
 <img width="633" src="https://github.com/C3n7ral051nt4g3ncy/WhatsMyName-Python/assets/104733166/408d7df6-1408-4884-8b99-933e0213f292.png"><p/>
 
+# .HTML Report Generation 
+This provides an easy and smooth way to have a general view of all the sites found, to click links one after the other, and to keep/save the data.
+
+<img width="933" src="https://github.com/C3n7ral051nt4g3ncy/WhatsMyName-Python/assets/104733166/54acf575-ac53-4468-a486-1ffb867e09c1.png">
+
+
 
 
 
