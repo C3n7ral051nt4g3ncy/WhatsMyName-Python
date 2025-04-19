@@ -1,0 +1,21 @@
+[project]
+name = "WhatsMyName-Python"
+description = "A script I made for myself to check sites are working"
+authors = [ { name = "C3n7ral051nt4g3ncy" } ]
+version = "1.0.0"
+dynamic = ["dependencies"]
+readme = "README.md"
+license-files = [ "LICENSE" ]
+
+[project.urls]
+"Upstream Web App" = "https://whatsmyname.app/"
+
+[project.scripts]
+whatsmyname = "whatsmyname:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"	
