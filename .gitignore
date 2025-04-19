@@ -1,2 +1,6 @@
 whatsmyname_report_*.html
 .DS_Store
+
+# pipx build files
+build/
+*.egg-info/
