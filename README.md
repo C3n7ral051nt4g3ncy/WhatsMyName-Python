@@ -26,7 +26,7 @@ git clone https://github.com/C3n7ral051nt4g3ncy/WhatsMyName-Python
 ```
 
 ```
-cd WhatsMyname-Python
+cd WhatsMyName-Python
 ```
 
 ```
