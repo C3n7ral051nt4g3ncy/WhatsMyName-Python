@@ -100,8 +100,7 @@ def generate_html_report(username, found_sites):
     with open(f"whatsmyname_report_{username}.html", "w") as report_file:
         report_file.write(html_content)
 
-# main
-if __name__ == "__main__":
+def main():
     banner()
     headers = {
         "Accept": "text/html, application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -227,3 +226,6 @@ if __name__ == "__main__":
         else:
             print(f"\nNo sites found for the user \033[1m{username}\033[0m.")
 
+# main
+if __name__ == "__main__":
+    main()
