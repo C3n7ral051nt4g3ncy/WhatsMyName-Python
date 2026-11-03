@@ -71,9 +71,10 @@ def check_site(site: dict, username: str) -> dict:
       when present, a response with that code is treated as not_found
       even if e_string would otherwise match.
     """
-    # strip_bad_char is a string of one character (e.g. ".") — remove it from username
-    bad_char = site.get("strip_bad_char")
-    clean_username = username.replace(bad_char, "") if bad_char else username
+    # strip_bad_char lists characters to remove from username (e.g. "@." on omg.lol)
+    clean_username = username
+    for ch in site.get("strip_bad_char", ""):
+        clean_username = clean_username.replace(ch, "")
 
     url_check  = site["uri_check"].format(account=clean_username)
     url_pretty = site.get("uri_pretty", site["uri_check"]).format(account=clean_username)
@@ -91,13 +92,16 @@ def check_site(site: dict, username: str) -> dict:
         # Some sites require a POST request with a JSON body payload
         post_body = site.get("post_body")
         if post_body:
-            # post_body is a JSON string template — substitute the username
-            post_body = post_body.format(account=clean_username)
+            # post_body is a JSON string — use replace() not format() to avoid
+            # KeyError on the { } braces that appear throughout JSON
+            post_body = post_body.replace("{account}", clean_username)
             # Merge site-level headers (e.g. Content-Type: application/json) with defaults
             req_headers = {**HEADERS, **site.get("headers", {})}
             res = requests.post(url_check, data=post_body, headers=req_headers, timeout=10)
         else:
-            res = requests.get(url_check, headers=HEADERS, timeout=10)
+            # Merge site-level headers for GET requests too (some sites need custom Accept)
+            req_headers = {**HEADERS, **site.get("headers", {})}
+            res = requests.get(url_check, headers=req_headers, timeout=10)
 
         result["http_code"]  = res.status_code
         result["elapsed_ms"] = int(res.elapsed.total_seconds() * 1000)
