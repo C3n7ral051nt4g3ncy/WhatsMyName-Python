@@ -4,3 +4,6 @@ whatsmyname_report_*.html
 # pipx build files
 build/
 *.egg-info/
+wmn_*.html
+wmn_*.json
+wmn_*.csv
