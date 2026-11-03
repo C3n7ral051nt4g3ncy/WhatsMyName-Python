@@ -105,11 +105,10 @@ def check_site(site: dict, username: str) -> dict:
         estring_pos = site["e_string"] in res.text
         estring_neg = site["m_string"] in res.text
 
-        # m_code: if the response code matches the known-negative code, it's not found
-        m_code = site.get("m_code")
-        if m_code and res.status_code == m_code:
-            result["status"] = "not_found"
-        elif res.status_code == site["e_code"] and estring_pos and not estring_neg:
+        # Detection: status code + positive string present + negative string absent.
+        # m_code is intentionally NOT checked here — e_code and m_code are often
+        # identical (both 200), so checking m_code first would suppress all hits.
+        if res.status_code == site["e_code"] and estring_pos and not estring_neg:
             result["status"] = "found"
 
     except requests.exceptions.Timeout:
