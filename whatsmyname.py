@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # File name       : whatsmyname.py
-# By              : C3n7ral051nt4g3ncy
-# Version         : Version 1.3.0
+# By              : C3n7ral051nt4g3ncy (aka OSINT Tactical) https://github.com/C3n7ral051nt4g3ncy
+# Usage           : 1.Scan for Username | 2.Current supported sites list | 3.Total number of sites | 4. Single Search
+# Version         : Version 1.2
 # Support         : Please do not support me, Support this project --> https://github.com/WebBreacher/WhatsMyName
 
 import sys
@@ -34,30 +35,19 @@ HEADERS = {
 def banner():
     print(
         """\033[39m\033[1m
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⢀⠀⠀⣰⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠃⣾⣿⡄⠹⢿⣿⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣶⣤⣼⣿⣿⣿⣿⣶⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀   ⢀⣴⡶⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣟⢿⠇⢀ ⣶⡆⢰⣶⣄⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀  ⢀⣴⡿⠋⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣇⢻⣿⣮⣀ ⣘⠻⠀  ⠙⢿⣷⣄⠀⠀⠀⠀⠀
-⠀⠀⠀ ⢀⣴⡿⠋⠀⠀⠀⠀⠀⠀⠀⠈⠉⣽⣿⣿⣿⣌⠛⠻⠿⠿⠿⠇⠀⠀⠀⠀⠀⠀ ⠙⢿⣷⣄⠀⠀⠀
-⠀⢀⣴⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⢿⣿⣿⡖⣰⣶⠂⠀⠀⠀⠀⠀⠀⠀⠀ ⠀ ⠙⢿⣷⣄⠀
-⠀⠻⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡀⠈⠙⢠⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀ ⢀⣴⣿⠟⠀
-⠀⠀ ⠈⠻⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⢀⣿⡟⣰⡄⠀⠀⠀⠀⠀⠀⠀ ⢀⣴⣿⠟⠁⠀⠀
-⠀⠀⠀⠀  ⠈⠻⣿⣦⡀⠀⠀⠀⠀⠀⢀⣿⣿⠇⠀⣾⡿⢠⣿⡇⠀⠀⠀⠀⠀⢀⣴⣿⠟⠁⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀   ⠈⠻⣿⣦⠀⠀⠀⢸⣿⣿⠀⣼⣿⠁⠈⠉⠀⠀⠀⠀⢰⣿⠟⠁⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠙⠉⠀⠙⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀
              < WebBreacher >
          \033[32m\033[1m
        ╦ ╦┬ ┬┌─┐┌┬┐┌─┐╔╦╗┬ ┬╔╗╔┌─┐┌┬┐┌─┐
        ║║║├─┤├─┤ │ └─┐║║║└┬┘║║║├─┤│││├┤ 
-       ╚╩╝┴ ┴┴ ┴ ┴ └─┘╩ ╩ ┴ ╝╚╝┴ ┴┴ ┴└─┘ Version 1.3.0
+       ╚╩╝┴ ┴┴ ┴ ┴ └─┘╩ ╩ ┴ ╝╚╝┴ ┴┴ ┴└─┘ Version 1.3
         \033[39m\033[1m
        by C3n7ral051nt4g3ncy
        github.com/WebBreacher/WhatsMyName\n\n
       \033[32m\033[1mUsage: python3 whatsmyname.py -h\033[0m\n\n"""
     )
-
 
 # ── Site checker ───────────────────────────────────────────────────────────────
 
@@ -72,9 +62,22 @@ def check_site(site: dict, username: str) -> dict:
     url_check  – the URL actually fetched (uri_check); kept for debugging.
     url_pretty – the human-facing profile URL (uri_pretty when present,
                  otherwise falls back to uri_check).
+
+    Handles:
+    - POST requests for sites that include a 'post_body' field.
+    - 'strip_bad_char': characters that must be removed from the username
+      before building the URL (e.g. spaces, dots — varies per site).
+    - 'm_code': optional HTTP code that confirms a true negative;
+      when present, a response with that code is treated as not_found
+      even if e_string would otherwise match.
     """
-    url_check  = site["uri_check"].format(account=username)
-    url_pretty = site.get("uri_pretty", site["uri_check"]).format(account=username)
+    # Strip characters the site forbids in usernames before building URLs
+    clean_username = username
+    for ch in site.get("strip_bad_char", []):
+        clean_username = clean_username.replace(ch, "")
+
+    url_check  = site["uri_check"].format(account=clean_username)
+    url_pretty = site.get("uri_pretty", site["uri_check"]).format(account=clean_username)
     result = {
         "name":       site["name"],
         "url_check":  url_check,
@@ -86,14 +89,27 @@ def check_site(site: dict, username: str) -> dict:
     }
 
     try:
-        res = requests.get(url_check, headers=HEADERS, timeout=10)
+        # Some sites require a POST request with a body payload
+        post_body = site.get("post_body")
+        if post_body:
+            # post_body may contain {account} placeholders too
+            if isinstance(post_body, str):
+                post_body = post_body.format(account=clean_username)
+            res = requests.post(url_check, data=post_body, headers=HEADERS, timeout=10)
+        else:
+            res = requests.get(url_check, headers=HEADERS, timeout=10)
+
         result["http_code"]  = res.status_code
         result["elapsed_ms"] = int(res.elapsed.total_seconds() * 1000)
 
         estring_pos = site["e_string"] in res.text
         estring_neg = site["m_string"] in res.text
 
-        if res.status_code == site["e_code"] and estring_pos and not estring_neg:
+        # m_code: if the response code matches the known-negative code, it's not found
+        m_code = site.get("m_code")
+        if m_code and res.status_code == m_code:
+            result["status"] = "not_found"
+        elif res.status_code == site["e_code"] and estring_pos and not estring_neg:
             result["status"] = "found"
 
     except requests.exceptions.Timeout:

@@ -3,11 +3,13 @@
 
 # [WhatsMyName](https://github.com/WebBreacher/WhatsMyName) Python Script V1.3 🔍
 
-As a regular contributor to Project [WhatsMyName](https://whatsmyname.app), this is a Python script I made for myself.
+As a regular contributor to Project [WhatsMyName](https://whatsmyname.app), this is a Python script I made for myself to check if sites are working, and I thoroughly enjoyed making it.
 
 The script is **unofficial** and is not part of Project WhatsMyName.
 
-Feel free to use it! 
+The code has been put through `Security Bandit` to test for any issues, and also through `Code Black` to get a nice style that fits with PEP8 requirements.
+
+Feel free to use it, it's open source, that's what it is for!
 
 <img width="333" src="https://user-images.githubusercontent.com/104733166/189120786-f854c5f8-57df-408c-bf33-b8eda521572c.png">
 
@@ -21,7 +23,7 @@ There is no support button on this repository. This is because WhatsMyName is no
 
 # License ©
 
-I am a regular contributor to Project WhatsMyName, but I am not officially part of its creation. WMN is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. **Copyright (C) Micah Hoffman**
+I am a regular contributor to Project WhatsMyName, but I am not officially part of its creation. WMN is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. **Copyright (C) 2022 Micah Hoffman**
 
 ---
 
@@ -117,7 +119,8 @@ whatsmyname -u johndoe --workers 40
 
 # Screenshot 📸
 
-<img width="633" src="https://github.com/user-attachments/assets/6ec11b0c-183d-48f1-be57-92ad5e5bd7e5">
+<p align="center">
+<img width="633" src="https://github.com/C3n7ral051nt4g3ncy/WhatsMyName-Python/assets/104733166/408d7df6-1408-4884-8b99-933e0213f292.png">
 </p>
 
 ---
@@ -134,14 +137,17 @@ Every scan automatically generates **three output files**, all timestamped so re
 
 All three files are saved in whichever directory you run the command from.
 
-<img width="933" src="https://github.com/user-attachments/assets/27a783f0-f6ce-4755-83ee-c61e2032a81c">
+<img width="933" src="https://github.com/C3n7ral051nt4g3ncy/WhatsMyName-Python/assets/104733166/54acf575-ac53-4468-a486-1ffb867e09c1.png">
 
 ---
 
 # Latest Improvements 🚀
 
 ### Version 1.3
-- **`uri_pretty` support**: when a site defines a `uri_pretty` field in the WMN dataset, the clean human-facing profile URL is shown in all output — terminal, HTML, JSON, and CSV — instead of the internal check URL which may point to an API endpoint. Sites without `uri_pretty` fall back to `uri_check` automatically.
+- **`uri_pretty` support**: when a site defines a `uri_pretty` field in the WMN dataset (212 sites currently do), the clean human-facing profile URL is shown in all output — terminal, HTML, JSON, and CSV — instead of the internal check URL which may point to an API endpoint. Sites without `uri_pretty` fall back to `uri_check` automatically.
+- **POST request support**: ~23 sites in the WMN dataset require a POST request with a body payload (`post_body` field). The script now sends `POST` for those sites instead of always using `GET`, so those accounts are no longer silently missed.
+- **`strip_bad_char` support**: ~22 sites specify characters that must be removed from the username before building the URL (e.g. spaces or dots). The script now strips those characters automatically per site, eliminating false negatives on those platforms.
+- **`m_code` checking**: when a site defines `m_code` (the HTTP status code that confirms a true negative), a response matching that code is now correctly treated as not found — preventing any false positives from API quirks.
 - **Full response logging**: all sites are now logged, not just hits. Every result — found, not found, or error — is recorded with its HTTP status code, response time in milliseconds, and error message if applicable.
 - **Three output formats**: JSON, CSV, and HTML are all generated automatically at the end of each scan. Individual formats can be skipped with `--no-html`, `--no-csv`, or `--no-json`.
 - **Timestamped output files**: repeated scans no longer overwrite previous reports.
@@ -171,7 +177,7 @@ Huge thanks to the following contributors for their valuable contributions to th
             <a href="https://github.com/hippiiee">
                 <img src="https://avatars.githubusercontent.com/u/41185722?v=4" width="99;" alt="@hippiiee"/>
                 <br />
-                <sub><b>@hippiiee</b></sub>
+                <sub><b>@Hippiiee</b></sub>
             </a>
         </td>
         <td align="center">
@@ -181,21 +187,9 @@ Huge thanks to the following contributors for their valuable contributions to th
                 <sub><b>@ljrk0</b></sub>
             </a>
         </td>
-        <td align="center">
-            <a href="https://github.com/webbreacher">
-                <img src="https://avatars.githubusercontent.com/u/2359093?v=4" width="99;" alt="@webbreacher"/>
-                <br />
-                <sub><b>@Webbreacher</b></sub>
-            </a>
-        </td>
     </tr>
 </table>
 
 <br>
 
 To add yourself to this list, please make a pull request with your GitHub username.
-
-
-
-
-
